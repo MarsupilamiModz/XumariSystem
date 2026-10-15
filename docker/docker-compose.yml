@@ -1,0 +1,73 @@
+# XumariSystem – self-hosting stack
+#
+#   cd docker && docker compose up -d --build
+#
+# Services:
+#   postgres – PostgreSQL 16 with a persistent volume
+#   bot      – Discord bot (API_MODE=external → the API runs in its own container)
+#   api      – FastAPI (order API, Stripe webhook, invoices, transcripts)
+#
+# Prefer a single container? Remove the `api` service and set API_MODE=embedded for the bot
+# (then publish port 8080 on the bot service instead).
+
+name: xumari
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-xumari}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-xumari}
+      POSTGRES_DB: ${POSTGRES_DB:-xumari}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-xumari} -d ${POSTGRES_DB:-xumari}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  bot:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    restart: unless-stopped
+    env_file: ../.env
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER:-xumari}:${POSTGRES_PASSWORD:-xumari}@postgres:5432/${POSTGRES_DB:-xumari}
+      CONFIG_PATH: /app/bot/config/config.yaml
+      API_MODE: external
+    volumes:
+      - ../bot/config/config.yaml:/app/bot/config/config.yaml:ro
+      - ../legal:/app/legal:ro
+      - appdata:/app/data
+      - ../logs:/app/logs
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  api:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    restart: unless-stopped
+    command: ["uvicorn", "api.main:build", "--factory", "--host", "0.0.0.0", "--port", "8080", "--proxy-headers"]
+    env_file: ../.env
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER:-xumari}:${POSTGRES_PASSWORD:-xumari}@postgres:5432/${POSTGRES_DB:-xumari}
+      CONFIG_PATH: /app/bot/config/config.yaml
+    volumes:
+      - ../bot/config/config.yaml:/app/bot/config/config.yaml:ro
+      - ../legal:/app/legal:ro
+      - appdata:/app/data
+      - ../logs:/app/logs
+    ports:
+      - "${API_PORT:-8080}:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  pgdata:
+  appdata:

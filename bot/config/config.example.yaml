@@ -1,0 +1,368 @@
+# =============================================================================
+#  XumariSystem – config.example.yaml
+#  Copy to bot/config/config.yaml and adjust. Every key is optional – missing
+#  keys fall back to the defaults shown here. IDs: Discord developer mode →
+#  right click → "Copy ID".
+# =============================================================================
+
+bot:
+  name: "XumariSystem"            # bot name used in system messages
+  shop_name: "Xumari"             # {shop} placeholder in all texts / footers
+  default_locale: "de"            # de | en – language of public messages
+  use_client_locale: true         # ephemeral replies follow the user's Discord language
+  timezone: "Europe/Berlin"       # opening hours, invoice dates, timestamps
+  guild_ids: []                   # guild IDs for instant command sync (empty = global sync, takes up to 1h)
+  owner_ids: []                   # user IDs with full access to every admin feature
+  sync_commands_on_start: true
+  status_text: "xumari.shop"
+
+# Disabled features are not loaded at all. Per-server toggles: /controlpanel → Feature-Flags
+features:
+  tickets: true
+  shop: true
+  orders: true
+  payments: true
+  downloads: true
+  economy: true
+  games: true
+  levels: true
+  invites: true
+  community: true
+  admin: true
+  stats: true
+  cv2: true
+  deals: true
+  logging: true
+
+design:
+  accent_color: "#4A90E2"         # colour of the bar on the left of every message
+  # Banner images (recommended 1200x300 px / 4:1). See ASSETS.md for the full list.
+  banners:
+    tickets: ""                   # e.g. https://cdn.example.com/banners/tickets.png
+    ticket_welcome: ""
+    review: ""
+    order: ""
+    shop: ""
+    downloads: ""
+    giveaway: ""
+  # Custom emojis override the Unicode fallbacks: key: "<:name:id>" or "<a:name:id>"
+  # See ASSETS.md (or core/emojis.py) for every key.
+  emojis: {}
+  #  ticket: "<:ticket:123456789012345678>"
+  #  download: "<:download:123456789012345678>"
+
+roles:
+  admin: []                       # full admin (in addition to Discord administrators)
+  staff: []                       # support staff (tickets, workflow commands)
+  designer: []                    # designers (queue, order assignment)
+  designers_are_staff: true       # designers get the same team permissions as staff
+  customer: null                  # given to customers after their first paid order
+
+logging:
+  default_channel_id: null        # fallback channel for all categories
+  channels: {}                    # per category, e.g. tickets: 123, orders: 456
+  #  commands / buttons / modals / members / roles / messages / server / moderation /
+  #  tickets / orders / payments / downloads / economy / community
+  log_commands: true
+  log_buttons: true
+  log_modals: true
+  log_member_events: true
+  log_message_events: true
+  log_role_events: true
+  store_in_db: true
+  ignored_channel_ids: []
+
+database:
+  min_pool_size: 2
+  max_pool_size: 10
+  auto_migrate: true              # apply pending SQL migrations on start
+
+api:
+  mode: "embedded"                # embedded (inside the bot) | external (own container) | disabled
+  host: "0.0.0.0"
+  port: 8080
+  public_url: "http://localhost:8080"   # public base URL (Stripe redirects, transcript links)
+  cors_origins: []
+
+# -----------------------------------------------------------------------------
+# Tickets
+# -----------------------------------------------------------------------------
+tickets:
+  panel_channel_id: null          # default channel for /ticket panel
+  closed_category_id: null        # closed tickets are moved here (optional)
+  max_open_per_user: 3
+  pin_welcome: true
+  categories:                     # max. 25; key = [a-z0-9_]
+    - key: "order"
+      name_de: "Bestellung"
+      name_en: "Order"
+      description_de: "Grafiken, Logos, Banner und mehr bestellen"
+      description_en: "Order graphics, logos, banners and more"
+      emoji: "order"              # emoji registry key or literal emoji / <:name:id>
+      discord_category_id: null   # Discord category for the channels
+      support_role_ids: []        # roles that see/manage these tickets (plus roles.staff/admin)
+      is_order: true              # shows the "create order" flow (shop module)
+      channel_prefix: "order"
+      ping_support_roles: true
+      questions: []
+    - key: "support"
+      name_de: "Support"
+      name_en: "Support"
+      description_de: "Fragen zu Produkten oder Bestellungen"
+      description_en: "Questions about products or orders"
+      emoji: "support"
+      support_role_ids: []
+      ai_validation: true         # pre-check answers with the AI (tickets.ai.enabled required)
+      channel_prefix: "support"
+      questions:                  # max. 5 – shown as modal before the ticket opens
+        - key: "topic"
+          label_de: "Worum geht es?"
+          label_en: "What is it about?"
+          style: "paragraph"      # short | paragraph
+          required: true
+          max_length: 1000
+    - key: "partnership"
+      name_de: "Partnerschaft"
+      name_en: "Partnership"
+      emoji: "partnership"
+      ai_validation: true
+      channel_prefix: "partner"
+      questions:
+        - key: "server"
+          label_de: "Link zu deinem Server / Projekt"
+          label_en: "Link to your server / project"
+        - key: "members"
+          label_de: "Mitgliederanzahl"
+          label_en: "Member count"
+          max_length: 20
+        - key: "idea"
+          label_de: "Deine Idee für die Partnerschaft"
+          label_en: "Your partnership idea"
+          style: "paragraph"
+  inactivity:
+    enabled: true
+    close_after_hours: 72         # auto-close after X hours without messages
+    reminder_before_hours: 24     # DM + channel reminder X hours before closing
+    delete_after_close_hours: 48  # delete closed tickets after X hours (0 = never)
+    check_interval_minutes: 10
+  transcripts:
+    enabled: true
+    storage: "local"              # r2 (needs R2_* in .env) | local (served by the API) | discord (file only)
+    local_dir: "data/transcripts"
+    dm_user: true                 # DM the transcript link to the customer
+    send_file_to_log: true        # attach the HTML file to the ticket log
+  opening_hours:
+    enabled: true
+    block_outside: false          # true = no new tickets outside opening hours
+    schedule:                     # HH:MM-HH:MM or null (closed)
+      mon: "09:00-18:00"
+      tue: "09:00-18:00"
+      wed: "09:00-18:00"
+      thu: "09:00-18:00"
+      fri: "09:00-18:00"
+      sat: null
+      sun: null
+    holidays: []                  # e.g. ["2026-12-24", "2026-12-25"] – more via /ticket holiday add
+  ai:
+    enabled: false                # needs AI_API_KEY in .env (any OpenAI compatible endpoint)
+    endpoint: "https://api.openai.com/v1"
+    model: "gpt-4o-mini"
+    timeout_seconds: 20
+    fail_open: true               # if the AI is unreachable, tickets are created anyway
+    prompt: >-
+      You validate support ticket requests for a design agency. Check whether the answers are complete,
+      meaningful and not spam. Reply ONLY with JSON: {"valid": true|false, "reason": "short reason in
+      the user's language"}.
+  reviews:
+    channel_id: null              # public review channel
+    react_emoji: "💙"
+    dm_on_completion: true        # ask for a review after /fertiggestellt
+
+# -----------------------------------------------------------------------------
+# Shop & orders (products, bundles and coupons live in the database:
+# /product, /bundle, /coupon or /controlpanel)
+# -----------------------------------------------------------------------------
+shop:
+  currency: "EUR"
+  standard_delivery_days: 7
+  express:
+    enabled: true
+    surcharge_percent: 50         # express surcharge on the subtotal
+    surcharge_fixed_cents: 0      # plus a fixed amount (cents)
+    delivery_days: 3
+  seasonal_designs:               # optional extra the customer can pick in the order wizard
+    - key: "xmas"
+      name_de: "Weihnachts-Design"
+      name_en: "Christmas design"
+      emoji: "season"
+      price_cents: 500
+  status_emojis:                  # prefix of the ticket channel name per order status
+    awaiting_payment: "💳"
+    paid: "💰"
+    queued: "📋"
+    in_progress: "🎨"
+    pending_answer: "⏳"
+    completed: "✅"
+    cancelled: "✖️"
+  queue_channel_id: null          # live queue board (auto-updated message)
+  showcase_channel_id: null       # /shop showcase posts here
+  faq_ticket_category: "support"  # "ask a question" button of the FAQ panel
+  faq:
+    - question_de: "Wie lange dauert eine Bestellung?"
+      question_en: "How long does an order take?"
+      answer_de: "In der Regel 3–7 Werktage, mit Express deutlich schneller."
+      answer_en: "Usually 3–7 business days, much faster with express."
+      emoji: "clock"
+    - question_de: "Welche Zahlungsmethoden gibt es?"
+      question_en: "Which payment methods are available?"
+      answer_de: "Alle Zahlungsarten, die Stripe anbietet – z. B. Karte, PayPal, Klarna."
+      answer_en: "Every method offered by Stripe – e.g. card, PayPal, Klarna."
+      emoji: "payment"
+  partnership:
+    ticket_category: "partnership"
+    requirements_de: ["Mindestens 500 Mitglieder", "Aktive Community", "Keine NSFW-Inhalte"]
+    requirements_en: ["At least 500 members", "Active community", "No NSFW content"]
+  default_todos_de: ["Briefing geprüft", "Entwurf erstellt", "Feedback eingearbeitet", "Finale Dateien geliefert"]
+  default_todos_en: ["Briefing reviewed", "Draft created", "Feedback applied", "Final files delivered"]
+
+# -----------------------------------------------------------------------------
+# Payments (Stripe keys in .env: STRIPE_SECRET_KEY / STRIPE_WEBHOOK_SECRET)
+# Webhook URL: {api.public_url}/stripe/webhook
+#   events: checkout.session.completed, checkout.session.async_payment_succeeded,
+#           checkout.session.async_payment_failed, checkout.session.expired, charge.refunded
+# -----------------------------------------------------------------------------
+payments:
+  stripe:
+    mode: "checkout"              # checkout (Checkout Session) | payment_link (Stripe Payment Link)
+    success_url: "{api_url}/payment/success?order={order_id}"
+    cancel_url: "{api_url}/payment/cancel?order={order_id}"
+    session_expires_minutes: 1440 # 30 – 1440
+  invoice:
+    enabled: true
+    send_on_payment: true         # DM the PDF invoice after the first payment
+    number_prefix: "RE"           # RE-2026-00001
+    small_business: true          # §19 UStG – no VAT shown
+    vat_rate_percent: 19.0        # used when small_business is false (prices are gross)
+    font_path: null               # TTF font with € support (auto-detected: DejaVu / Arial)
+    company:
+      name: "Xumari Design"
+      owner: ""
+      address_lines: ["Musterstraße 1", "12345 Musterstadt", "Deutschland"]
+      email: "info@example.com"
+      website: ""
+      tax_number: ""
+      vat_id: ""
+      bank_lines: []
+  legal_dir: "legal"              # terms/privacy/withdrawal .de.md/.en.md – served at /legal/<doc>
+
+# -----------------------------------------------------------------------------
+# Economy & games
+# -----------------------------------------------------------------------------
+economy:
+  currency_name: "Coins"
+  currency_emoji: "coin"          # registry key or emoji
+  start_balance: 100
+  daily: { min_amount: 150, max_amount: 250, cooldown_seconds: 86400 }
+  work:  { min_amount: 40,  max_amount: 120, cooldown_seconds: 3600 }
+  crime: { min_amount: 100, max_amount: 400, cooldown_seconds: 7200, success_rate: 0.45, fine_percent: 0.25 }
+  rob:   { min_amount: 0,   max_amount: 0,   cooldown_seconds: 10800, success_rate: 0.40, fine_percent: 0.20 }
+  rob_max_steal_percent: 0.30     # max share of the victim's balance
+  rob_min_victim_balance: 200
+  leaderboard_size: 10
+
+games:
+  min_bet: 10
+  max_bet: 10000
+  cooldown_seconds: 5             # anti-spam between two games
+  game_timeout_seconds: 120       # blackjack auto-stands, mines auto-cashes out
+  blackjack_payout: 2.0           # total return on a win (stake included)
+  blackjack_natural_payout: 2.5   # total return on a natural blackjack
+  mines_grid_size: 4              # 3 – 5
+  mines_default_mines: 3
+  mines_house_edge: 0.03
+
+# -----------------------------------------------------------------------------
+# Levels, boosts & invites
+# -----------------------------------------------------------------------------
+levels:
+  xp_min: 15
+  xp_max: 25
+  cooldown_seconds: 60            # XP at most once per minute per member
+  blacklisted_channel_ids: []     # channel or category IDs without XP
+  formula: "5 * level ** 2 + 50 * level + 100"   # XP from level L to L+1 (variables: level; + - * / ** min max round)
+  level_up_channel_id: null       # null = same channel as the message
+  announce_level_up: true
+  rewards: {}                     # level: role_id – more via /levels reward add
+  #  5: 123456789012345678
+  stack_rewards: true             # false = only keep the highest reward role
+  leaderboard_size: 10
+  boost:
+    enabled: true
+    role_ids: []                  # extra roles for boosters
+    channel_id: null              # thank-you message
+
+invites:
+  log_channel_id: null            # "X was invited by Y" messages
+  fake_account_age_days: 7        # newer accounts count as fake
+  leaderboard_size: 10
+
+# -----------------------------------------------------------------------------
+# Community
+# -----------------------------------------------------------------------------
+community:
+  welcome:
+    enabled: true
+    channel_id: null
+    auto_role_ids: []             # given on join (or after the captcha if enabled)
+    dm_user: false
+  captcha:
+    enabled: false
+    mode: "image"                 # image (picture + code input) | button (pick the right code)
+    channel_id: null              # default channel for /captcha panel
+    verified_role_id: null
+    unverified_role_id: null      # given on join, removed after verification
+    code_length: 6
+    max_attempts: 3
+    kick_after_minutes: 0         # 0 = never kick unverified members
+  nickname_filter:
+    enabled: false
+    allowed_pattern: '^[\w\s\-\.äöüÄÖÜß'']+$'
+    blocked_words: []
+    replacement: "Member {id4}"   # {id4} = last 4 digits of the user ID, {id} = full ID
+  member_counter:
+    enabled: false
+    channel_id: null              # voice channel whose name shows the count
+    name_format: "👥 Mitglieder: {count}"
+    count_bots: false
+    update_interval_minutes: 10   # Discord allows 2 renames per 10 minutes
+  ghost_ping:
+    enabled: true
+    max_age_seconds: 120          # deleted within X seconds after sending
+    channel_id: null              # null = report in the same channel
+  modmail:
+    enabled: false
+    guild_id: null                # server that receives the DMs
+    channel_id: null              # text or forum channel for the threads
+    staff_role_ids: []            # pinged on new conversations
+  role_sync: []                   # more via /rolesync add
+  #  - source_guild_id: 111
+  #    source_role_id: 222
+  #    target_guild_id: 333
+  #    target_role_id: 444
+  giveaways:
+    default_channel_id: null
+    check_interval_seconds: 30
+
+# -----------------------------------------------------------------------------
+# Downloads (mods, files, releases) – managed via /download or /controlpanel
+# -----------------------------------------------------------------------------
+downloads:
+  default_channel_id: null        # preselected target channel
+  track_clicks: false             # true = "Download" button hands out the link ephemerally and counts clicks
+                                  # (a required role always implies tracking, otherwise the role couldn't be checked)
+  send_video_embed: false         # true = extra plain message with the YouTube link → playable video embed
+  categories:
+    - { key: "script",   name_de: "Script",   name_en: "Script",   emoji: "script" }
+    - { key: "vehicle",  name_de: "Fahrzeug", name_en: "Vehicle",  emoji: "vehicle" }
+    - { key: "map",      name_de: "Map",      name_en: "Map",      emoji: "map" }
+    - { key: "graphics", name_de: "Grafiken", name_en: "Graphics", emoji: "graphics" }

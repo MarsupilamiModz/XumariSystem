@@ -1,0 +1,1700 @@
+{
+  "common": {
+    "language_switch": "English Version",
+    "confirm": "Bestätigen",
+    "cancel": "Abbrechen",
+    "back": "Zurück",
+    "next": "Weiter",
+    "previous": "Vorherige",
+    "close": "Schließen",
+    "save": "Speichern",
+    "edit": "Bearbeiten",
+    "delete": "Löschen",
+    "refresh": "Aktualisieren",
+    "yes": "Ja",
+    "no": "Nein",
+    "none": "—",
+    "ok": "Online",
+    "error": "Fehler",
+    "enabled": "Aktiviert",
+    "disabled": "Deaktiviert",
+    "page": "Seite {page} / {pages}",
+    "cancelled": "Vorgang abgebrochen.",
+    "saved": "Gespeichert.",
+    "unknown_user": "Unbekannter Nutzer"
+  },
+  "errors": {
+    "title": "Fehler",
+    "generic": "Etwas ist schiefgelaufen. Bitte versuche es erneut.",
+    "unexpected": "Ein unerwarteter Fehler ist aufgetreten. Bitte melde dich beim Team und nenne den Code **{ref}**.",
+    "no_permission": "Dafür fehlen dir die nötigen Berechtigungen.",
+    "feature_disabled": "Diese Funktion ist auf diesem Server derzeit deaktiviert.",
+    "not_found": "Der Eintrag wurde nicht gefunden.",
+    "cooldown": "Bitte warte noch – wieder möglich {until}.",
+    "guild_only": "Dieser Befehl funktioniert nur auf einem Server.",
+    "bot_missing_permissions": "Mir fehlen Berechtigungen, um diese Aktion auszuführen.",
+    "invalid_input": "Ungültige Eingabe. Bitte prüfe deine Angaben.",
+    "not_configured": "Diese Funktion ist noch nicht eingerichtet ({what}).",
+    "component_expired": "Diese Schaltfläche ist nicht mehr gültig.",
+    "not_your_component": "Diese Schaltfläche gehört nicht dir.",
+    "invalid_duration": "Ungültige Dauer. Beispiele: `30m`, `2h`, `1d12h`.",
+    "invalid_date": "Ungültiges Datum. Format: `TT.MM.JJJJ` oder `JJJJ-MM-TT`.",
+    "invalid_amount": "Ungültiger Betrag.",
+    "invalid_url": "Ungültige URL. Sie muss mit `https://` beginnen.",
+    "dm_closed": "Ich konnte dir keine Direktnachricht senden – bitte öffne deine DMs."
+  },
+  "logs": {
+    "by": "Ausgeführt von {user}",
+    "command": {
+      "title": "Befehl ausgeführt",
+      "line": "{e_dot} **Befehl:** `{command}` in {channel}",
+      "options": "{e_dot} **Optionen:** {options}"
+    },
+    "component": {
+      "title": "Interaktion",
+      "line": "{e_dot} **Komponente:** {custom_id} in {channel}",
+      "values": "{e_dot} **Auswahl:** {values}"
+    },
+    "modal": {
+      "title": "Formular abgesendet",
+      "line": "{e_dot} **Formular:** {custom_id}"
+    },
+    "member": {
+      "join_title": "Mitglied beigetreten",
+      "leave_title": "Mitglied hat den Server verlassen",
+      "nick_title": "Nickname geändert",
+      "user": "{e_user} **Nutzer:** {user}",
+      "created": "{e_calendar} **Account erstellt:** {created}",
+      "joined": "{e_calendar} **Beigetreten:** {joined}",
+      "count": "{e_users} **Mitglieder:** {count}",
+      "roles": "{e_role} **Rollen:** {roles}",
+      "nick_change": "{e_edit} **{before}** {e_arrow} **{after}**"
+    },
+    "roles": {
+      "member_title": "Rollen geändert",
+      "added": "{e_add} **Hinzugefügt:** {roles}",
+      "removed": "{e_remove} **Entfernt:** {roles}",
+      "created_title": "Rolle erstellt",
+      "deleted_title": "Rolle gelöscht"
+    },
+    "channel": {
+      "created_title": "Kanal erstellt",
+      "deleted_title": "Kanal gelöscht"
+    },
+    "moderation": {
+      "ban_title": "Mitglied gebannt",
+      "unban_title": "Bann aufgehoben"
+    },
+    "message": {
+      "deleted_title": "Nachricht gelöscht",
+      "edited_title": "Nachricht bearbeitet",
+      "author": "{e_user} **Autor:** {user}",
+      "channel": "{e_message} **Kanal:** {channel}",
+      "attachments": "{e_file} **Anhänge:** {count}",
+      "jump": "{e_link} [Zur Nachricht]({url})",
+      "before": "Vorher",
+      "after": "Nachher"
+    }
+  },
+  "admin": {
+    "info": {
+      "title": "{bot} – Systemstatus",
+      "version": "Version {version}",
+      "latency": "Latenz",
+      "database": "Datenbank",
+      "uptime": "Online seit",
+      "guilds": "Server",
+      "routes": "Registrierte Komponenten",
+      "api": "API-Modus",
+      "modules": "Aktive Module: {modules}"
+    },
+    "sync": {
+      "done": "{count} Befehle synchronisiert."
+    },
+    "reload": {
+      "done": "Modul **{module}** neu geladen.",
+      "unknown": "Unbekanntes oder deaktiviertes Modul: `{module}`."
+    },
+    "language": {
+      "done": "Standardsprache auf **{locale}** gesetzt."
+    },
+    "diagnose": {
+      "title": "Konfigurations-Check",
+      "banners": "Konfigurierte Banner",
+      "emojis": "Eigene Emojis",
+      "problems": "Gefundene Probleme",
+      "all_good": "Alles in Ordnung – alle konfigurierten IDs wurden gefunden.",
+      "missing_channel": "Kanal nicht gefunden: `{label}` (`{id}`)",
+      "missing_role": "Rolle nicht gefunden: `{label}` (`{id}`)",
+      "missing_perms": "Fehlende Bot-Berechtigungen: {perms}"
+    }
+  },
+  "commands": {
+    "xumari": {
+      "_": "Systemverwaltung",
+      "info": "Zeigt Bot-Status und geladene Module",
+      "sync": "Synchronisiert Slash-Befehle mit Discord",
+      "reload": {
+        "_": "Lädt ein Modul neu",
+        "module": "Modul, das neu geladen werden soll"
+      },
+      "language": {
+        "_": "Setzt die Standardsprache dieses Servers",
+        "locale": "Sprache (de/en)"
+      },
+      "diagnose": "Prüft konfigurierte Kanäle, Rollen und Berechtigungen"
+    },
+    "close": {
+      "_": "Schließt das aktuelle Ticket",
+      "reason": "Grund für das Schließen (optional)"
+    },
+    "reopen": "Öffnet das aktuelle Ticket erneut",
+    "delete": "Löscht das aktuelle Ticket endgültig",
+    "blacklistpanel": "Öffnet die Verwaltung der Ticket-Blacklist",
+    "ticket": {
+      "_": "Ticket-Verwaltung",
+      "panel": {
+        "_": "Sendet das Ticket-Panel",
+        "channel": "Kanal für das Panel (optional)"
+      },
+      "open": "Öffnet ein neues Ticket",
+      "add": {
+        "_": "Fügt eine Person zum Ticket hinzu",
+        "user": "Person, die hinzugefügt wird"
+      },
+      "remove": {
+        "_": "Entfernt eine Person aus dem Ticket",
+        "user": "Person, die entfernt wird"
+      },
+      "move": {
+        "_": "Verschiebt das Ticket in eine andere Kategorie",
+        "category": "Neue Kategorie"
+      },
+      "rename": {
+        "_": "Benennt den Ticket-Kanal um",
+        "name": "Neuer Kanalname"
+      },
+      "hours": "Zeigt Öffnungszeiten und Feiertage",
+      "sethours": {
+        "_": "Setzt die Öffnungszeiten eines Wochentags",
+        "day": "Wochentag",
+        "span": "Zeitraum, z. B. 09:00-18:00 oder off"
+      },
+      "holiday": {
+        "_": "Feiertage verwalten",
+        "add": {
+          "_": "Fügt einen Feiertag hinzu",
+          "date": "Datum (TT.MM.JJJJ)",
+          "name": "Bezeichnung"
+        },
+        "remove": {
+          "_": "Entfernt einen Feiertag",
+          "date": "Datum (TT.MM.JJJJ)"
+        },
+        "list": "Listet alle Feiertage"
+      }
+    },
+    "order": {
+      "_": "Bestellungen verwalten",
+      "number": "Bestellnummer (optional, sonst die des aktuellen Tickets)",
+      "info": "Zeigt Details einer Bestellung",
+      "position": "Zeigt deine Position in der Warteschlange",
+      "assign": {
+        "_": "Weist einer Bestellung einen Designer zu",
+        "designer": "Designer"
+      },
+      "cancel": {
+        "_": "Storniert eine Bestellung",
+        "reason": "Grund (optional)"
+      },
+      "new": "Erstellt den Bestell-Assistenten im aktuellen Ticket",
+      "custom": {
+        "_": "Fügt eine individuelle Position hinzu",
+        "name": "Bezeichnung",
+        "price": "Preis, z. B. 49,90",
+        "quantity": "Menge"
+      },
+      "note": {
+        "_": "Speichert eine interne Notiz zur Bestellung",
+        "text": "Notiz"
+      }
+    },
+    "todo": {
+      "_": "Kunden-Checkliste",
+      "show": "Zeigt die Checkliste der Bestellung im Ticket",
+      "add": {
+        "_": "Fügt einen Punkt zur Checkliste hinzu",
+        "text": "Text"
+      }
+    },
+    "workflow": {
+      "note": "Nachricht an den Kunden (optional)"
+    },
+    "bezahlt": "Markiert die Bestellung als bezahlt",
+    "bearbeitung": {
+      "_": "Setzt die Bestellung auf „In Bearbeitung“",
+      "designer": "Zuständiger Designer (optional)"
+    },
+    "pendinganswer": "Setzt die Bestellung auf „Warte auf Antwort“",
+    "backinqueue": "Setzt die Bestellung zurück in die Warteschlange",
+    "fertiggestellt": "Markiert die Bestellung als fertiggestellt",
+    "queue": "Zeigt die aktuelle Warteschlange",
+    "orderstats": {
+      "_": "Zeigt Bestellstatistiken",
+      "period": "Zeitraum"
+    },
+    "period": {
+      "7d": "Letzte 7 Tage",
+      "30d": "Letzte 30 Tage",
+      "90d": "Letzte 90 Tage",
+      "365d": "Letztes Jahr",
+      "all": "Gesamter Zeitraum"
+    },
+    "shop": {
+      "_": "Shop-Panels",
+      "channel": "Zielkanal (optional)",
+      "panel": "Sendet das Shop-Panel",
+      "faq": "Sendet das FAQ-Panel",
+      "partnership": "Sendet das Partnerschafts-Panel",
+      "showcase": {
+        "_": "Postet eine fertige Arbeit im Showcase",
+        "image": "Bild der Arbeit",
+        "customer": "Kunde (optional)",
+        "title": "Titel",
+        "description": "Beschreibung (optional)",
+        "designer": "Designer (optional)"
+      }
+    },
+    "product": {
+      "_": "Produkte verwalten",
+      "add": "Legt ein Produkt an",
+      "edit": "Bearbeitet ein Produkt",
+      "remove": "Löscht ein Produkt",
+      "list": "Listet alle Produkte",
+      "product": "Produkt",
+      "sku": "Eindeutige Artikelnummer",
+      "name_de": "Name (Deutsch)",
+      "name_en": "Name (Englisch)",
+      "price": "Preis, z. B. 19,99",
+      "category_key": "Kategorie",
+      "description_de": "Beschreibung (Deutsch)",
+      "description_en": "Beschreibung (Englisch)",
+      "emoji": "Emoji (Registry-Schlüssel oder Emoji)",
+      "delivery_days": "Lieferzeit in Tagen",
+      "image_url": "Bild-URL",
+      "active": "Aktiv",
+      "category": {
+        "_": "Produktkategorien",
+        "add": "Legt eine Kategorie an oder aktualisiert sie",
+        "remove": "Löscht eine Kategorie",
+        "key": "Schlüssel (a-z, 0-9, _)",
+        "sort": "Sortierung"
+      }
+    },
+    "bundle": {
+      "_": "Bundles verwalten",
+      "create": "Legt ein Bundle an",
+      "item": "Setzt die Menge eines Produkts im Bundle (0 = entfernen)",
+      "edit": "Bearbeitet ein Bundle",
+      "remove": "Löscht ein Bundle",
+      "list": "Listet alle Bundles",
+      "bundle": "Bundle",
+      "quantity": "Menge"
+    },
+    "coupon": {
+      "_": "Gutscheine verwalten",
+      "create": "Erstellt einen Gutschein",
+      "toggle": "Aktiviert oder deaktiviert einen Gutschein",
+      "delete": "Löscht einen Gutschein",
+      "list": "Listet alle Gutscheine",
+      "coupon": "Gutschein",
+      "code": "Gutscheincode",
+      "kind": {
+        "_": "Art des Rabatts",
+        "percent": "Prozent",
+        "fixed": "Fester Betrag"
+      },
+      "value": "Wert (z. B. 10 für 10 % oder 5,00)",
+      "expires": "Ablauf: Datum (TT.MM.JJJJ) oder Dauer (z. B. 30d)",
+      "max_uses": "Maximale Einlösungen",
+      "min_order": "Mindestbestellwert",
+      "products": "Nur für Produkte (Artikelnummern, kommagetrennt)"
+    },
+    "paylink": "Erstellt einen neuen Zahlungslink für die Bestellung",
+    "invoice": "Sendet die Rechnung einer bezahlten Bestellung als PDF",
+    "legal": {
+      "_": "Zeigt AGB, Datenschutz oder Widerrufsbelehrung",
+      "document": "Dokument",
+      "public": "Öffentlich im Kanal posten (nur Team)",
+      "doc": {
+        "terms": "AGB",
+        "privacy": "Datenschutzerklärung",
+        "withdrawal": "Widerrufsbelehrung"
+      }
+    },
+    "apikey": {
+      "_": "API-Schlüssel verwalten",
+      "create": "Erstellt einen API-Schlüssel",
+      "name": "Bezeichnung",
+      "access": {
+        "_": "Berechtigungen",
+        "read": "Nur lesen",
+        "full": "Vollzugriff"
+      },
+      "list": "Listet alle API-Schlüssel",
+      "revoke": "Widerruft einen API-Schlüssel",
+      "key_id": "ID des Schlüssels"
+    },
+    "privacy": {
+      "_": "Datenschutz (DSGVO)",
+      "export": "Exportiert alle über dich gespeicherten Daten",
+      "delete": "Löscht deine gespeicherten Daten"
+    },
+    "review": "Bewerte eine abgeschlossene Bestellung",
+    "stats": {
+      "_": "Statistiken",
+      "overview": "Gesamtübersicht",
+      "designers": "Statistiken pro Designer",
+      "tickets": "Ticket-Statistiken pro Kategorie",
+      "reviews": "Bewertungsstatistik",
+      "sales": "Verkaufsstatistik",
+      "customers": "Kundenstatistik"
+    },
+    "balance": {
+      "_": "Zeigt dein Guthaben",
+      "user": "Anderes Mitglied (optional)"
+    },
+    "daily": "Hole deine tägliche Belohnung ab",
+    "work": "Arbeite für ein paar Münzen",
+    "crime": "Begehe ein (riskantes) Verbrechen",
+    "rob": {
+      "_": "Versuche, ein anderes Mitglied auszurauben",
+      "user": "Opfer"
+    },
+    "pay": {
+      "_": "Überweise Münzen an ein Mitglied",
+      "user": "Empfänger",
+      "amount": "Betrag"
+    },
+    "eco": {
+      "_": "Economy-Verwaltung",
+      "leaderboard": "Zeigt die reichsten Mitglieder",
+      "give": "Gibt einem Mitglied Münzen",
+      "take": "Nimmt einem Mitglied Münzen",
+      "set": "Setzt das Guthaben eines Mitglieds",
+      "reset": {
+        "_": "Setzt die Economy zurück",
+        "user": "Nur dieses Mitglied (optional, sonst alle)"
+      }
+    },
+    "blackjack": "Spiele eine Runde Blackjack",
+    "mines": {
+      "_": "Spiele Mines – finde Edelsteine und weiche Minen aus",
+      "count": "Anzahl Minen"
+    },
+    "games": {
+      "bet": "Einsatz"
+    },
+    "rank": {
+      "_": "Zeigt Level und XP",
+      "user": "Mitglied (optional)"
+    },
+    "levels": {
+      "_": "Level-System",
+      "leaderboard": "Zeigt die Level-Rangliste",
+      "setxp": {
+        "_": "Setzt die XP eines Mitglieds",
+        "xp": "XP"
+      },
+      "reset": {
+        "_": "Setzt Level zurück",
+        "user": "Nur dieses Mitglied (optional, sonst alle)"
+      },
+      "reward": {
+        "_": "Rollenbelohnungen pro Level",
+        "add": "Fügt eine Rollenbelohnung hinzu",
+        "remove": "Entfernt eine Rollenbelohnung",
+        "list": "Listet alle Rollenbelohnungen",
+        "level": "Level",
+        "role": "Rolle"
+      }
+    },
+    "invites": {
+      "_": "Einladungen",
+      "show": "Zeigt die Einladungen eines Mitglieds",
+      "user": "Mitglied",
+      "leaderboard": "Zeigt die Einladungs-Rangliste",
+      "who": "Zeigt, wer ein Mitglied eingeladen hat"
+    },
+    "controlpanel": "Öffnet das zentrale Control-Panel",
+    "giveaway": {
+      "_": "Giveaways",
+      "start": "Startet ein Giveaway",
+      "prize": "Preis",
+      "duration": "Dauer, z. B. 2d oder 12h",
+      "winners": "Anzahl Gewinner",
+      "channel": "Kanal (optional)",
+      "required_role": "Benötigte Rolle (optional)",
+      "description": "Beschreibung (optional)",
+      "end": "Beendet ein Giveaway sofort",
+      "giveaway": "Giveaway",
+      "reroll": "Lost neue Gewinner aus",
+      "list": "Listet laufende Giveaways"
+    },
+    "captcha": {
+      "_": "Verifizierung",
+      "panel": "Sendet das Verifizierungs-Panel"
+    },
+    "reactionroles": {
+      "_": "Reaktionsrollen",
+      "create": "Erstellt ein Reaktionsrollen-Panel",
+      "title": "Titel",
+      "description": "Beschreibung",
+      "mode": {
+        "_": "Darstellung",
+        "buttons": "Buttons",
+        "select": "Auswahlmenü"
+      },
+      "add": "Fügt eine Rolle zum Panel hinzu",
+      "panel": "Panel",
+      "label": "Beschriftung",
+      "role_description": "Beschreibung der Rolle",
+      "remove": "Entfernt eine Rolle aus dem Panel",
+      "delete": "Löscht ein Panel"
+    },
+    "remind": {
+      "_": "Erstellt eine Erinnerung",
+      "when": "Wann? z. B. 30m, 2h, 1d oder 24.12.2026",
+      "text": "Woran soll ich dich erinnern?",
+      "dm": "Per DM erinnern"
+    },
+    "reminders": {
+      "_": "Erinnerungen",
+      "list": "Zeigt deine Erinnerungen",
+      "delete": "Löscht eine Erinnerung",
+      "reminder": "ID der Erinnerung"
+    },
+    "rolesync": {
+      "_": "Serverübergreifende Rollensynchronisierung",
+      "add": "Synchronisiert eine Rolle auf einen anderen Server",
+      "source_role": "Rolle auf diesem Server",
+      "target_guild": "ID des Ziel-Servers",
+      "target_role": "ID der Ziel-Rolle",
+      "list": "Listet alle Synchronisierungen",
+      "remove": "Entfernt eine Synchronisierung",
+      "sync_id": "ID der Synchronisierung",
+      "run": "Synchronisiert alle Rollen jetzt vollständig"
+    },
+    "modmail": {
+      "_": "Mod-Mail",
+      "close": "Schließt den aktuellen Mod-Mail-Thread",
+      "contact": "Kontaktiert ein Mitglied per Mod-Mail",
+      "message": "Nachricht"
+    },
+    "download": {
+      "_": "Downloads verwalten",
+      "create": "Erstellt einen neuen Download",
+      "edit": "Bearbeitet einen Download",
+      "delete": "Löscht einen Download",
+      "list": "Listet alle Downloads",
+      "post": "Postet einen Download (erneut)",
+      "info": "Zeigt Details zu einem Download",
+      "download": "Download"
+    },
+    "cv2": {
+      "_": "Components-V2-Builder",
+      "new": "Erstellt eine neue Vorlage und öffnet den Builder",
+      "name": "Name der Vorlage",
+      "edit": "Öffnet eine Vorlage im Builder",
+      "template": "Vorlage",
+      "send": "Sendet eine Vorlage in einen Kanal",
+      "list": "Listet alle Vorlagen",
+      "export": "Exportiert eine Vorlage als JSON",
+      "import": "Importiert eine Vorlage aus einer JSON-Datei",
+      "file": "JSON-Datei"
+    },
+    "deal": "Postet einen Affiliate-Deal als Embed mit Button"
+  },
+  "tickets": {
+    "panel": {
+      "title": "Willkommen im Ticket-System!",
+      "subtitle": "Bitte wähle eine unserer Ticketkategorien aus, um ein Ticket zu erstellen.",
+      "select_placeholder": "Kategorie wählen",
+      "hours": "Öffnungszeiten: {hours}",
+      "ai_hint": "Support- und Partnerschaftsanfragen werden mithilfe einer DSGVO-konform gehosteten KI vorgeprüft, damit wir dir schneller helfen können."
+    },
+    "modal_title": "Ticket – {category}",
+    "welcome": {
+      "title": "{category}",
+      "body": "Vielen Dank, dass du dich an uns gewandt hast! Ein Teammitglied wird sich **schnellstmöglich** bei dir **zurückmelden**.\nBeschreibe uns gerne schon jetzt, um welche **Produkte** oder **Leistungen** es geht.",
+      "outside_hours": "{e_clock} Wir sind gerade außerhalb unserer Öffnungszeiten. Wir melden uns ab {until} bei dir.",
+      "footer_hours": "Bitte beachten Sie unsere Öffnungszeiten von {hours}.",
+      "footer_meta": "Ticket ID: **{code}**, Kategorie: **{category}**"
+    },
+    "buttons": {
+      "close": "Ticket schließen",
+      "delete": "Löschen",
+      "reopen": "Wieder öffnen",
+      "transcript": "Transkript",
+      "goto": "Zum Ticket"
+    },
+    "created_title": "Ticket erstellt",
+    "created": "Dein Ticket wurde erstellt: {channel}",
+    "channel_topic": "Ticket {code} · {category} · Nutzer-ID {user}",
+    "system": "System",
+    "closing": "Ticket wird geschlossen …",
+    "closed_ok": "Das Ticket wurde geschlossen.",
+    "reopened_title": "Ticket wieder geöffnet",
+    "reopened": "{user} hat das Ticket wieder geöffnet.",
+    "deleting": "Das Ticket wird in {seconds} Sekunden gelöscht …",
+    "panel_sent": "Ticket-Panel gesendet in {channel}.",
+    "member_added": "{user} wurde zum Ticket hinzugefügt.",
+    "member_removed": "{user} wurde aus dem Ticket entfernt.",
+    "moved": "Ticket in die Kategorie **{category}** verschoben.",
+    "renamed": "Kanal umbenannt in **{name}**.",
+    "confirm_close": {
+      "title": "Ticket schließen?",
+      "description": "Das Ticket wird geschlossen und ein Transkript erstellt. Ein Teammitglied kann es jederzeit wieder öffnen."
+    },
+    "confirm_delete": {
+      "title": "Ticket endgültig löschen?",
+      "description": "Ticket **{code}** und der Kanal werden unwiderruflich gelöscht."
+    },
+    "closed": {
+      "title": "Ticket geschlossen",
+      "description": "Dieses Ticket wurde geschlossen. Du kannst den Verlauf weiterhin lesen.",
+      "by": "Geschlossen von",
+      "reason": "Grund",
+      "footer": "Ticket ID: **{code}** · Das Team kann das Ticket wieder öffnen oder löschen."
+    },
+    "dm_closed": {
+      "title": "Dein Ticket wurde geschlossen",
+      "description": "Dein Ticket auf **{guild}** wurde geschlossen. Vielen Dank für deine Anfrage!",
+      "ticket": "Ticket",
+      "category": "Kategorie",
+      "footer": "Über den Button kannst du dir den kompletten Verlauf als Transkript ansehen."
+    },
+    "inactivity": {
+      "title": "Ticket ohne Aktivität",
+      "description": "In diesem Ticket gab es länger keine Aktivität. Es wird {when} automatisch geschlossen, wenn niemand antwortet.",
+      "reason": "Automatisch geschlossen wegen Inaktivität"
+    },
+    "ai": {
+      "rejected_title": "Bitte ergänze deine Anfrage",
+      "rejected": "Deine Angaben reichen leider noch nicht aus: {reason}",
+      "no_reason": "Die Antworten sind unvollständig oder nicht verständlich.",
+      "footer": "Die Vorprüfung erfolgt durch eine DSGVO-konform gehostete KI. Bitte öffne das Ticket mit ausführlicheren Angaben erneut."
+    },
+    "errors": {
+      "unknown_category": "Diese Ticketkategorie existiert nicht (mehr).",
+      "not_a_ticket": "Dieser Befehl funktioniert nur in einem Ticket-Kanal.",
+      "blacklisted": "Du kannst derzeit keine Tickets erstellen.\n> Grund: {reason}\n> Bis: {until}",
+      "limit": "Du hast bereits die maximale Anzahl von **{limit}** offenen Tickets.",
+      "closed_hours": "Wir sind gerade außerhalb unserer Öffnungszeiten. Tickets sind wieder möglich ab {next}.",
+      "channel_failed": "Der Ticket-Kanal konnte nicht erstellt werden. Bitte informiere das Team.",
+      "already_closed": "Dieses Ticket ist bereits geschlossen.",
+      "already_open": "Dieses Ticket ist bereits geöffnet.",
+      "cannot_remove_owner": "Der Ticket-Ersteller kann nicht entfernt werden.",
+      "rename_failed": "Der Kanal konnte nicht umbenannt werden (Discord erlaubt nur 2 Umbenennungen pro 10 Minuten).",
+      "invalid_span": "Ungültiger Zeitraum. Format: `09:00-18:00` oder `off`."
+    },
+    "hours": {
+      "title": "Öffnungszeiten",
+      "open_now": "Wir sind gerade für dich da.",
+      "closed_now": "Gerade geschlossen – wieder erreichbar {next}.",
+      "closed": "geschlossen",
+      "never": "nach Vereinbarung",
+      "holidays": "Feiertage",
+      "updated": "Öffnungszeiten für `{day}` gesetzt: **{span}**",
+      "span": "{start} bis {end} Uhr, {days}",
+      "day_range": "{first} bis {last}",
+      "days": {
+        "mon": "montags",
+        "tue": "dienstags",
+        "wed": "mittwochs",
+        "thu": "donnerstags",
+        "fri": "freitags",
+        "sat": "samstags",
+        "sun": "sonntags"
+      },
+      "days_short": {
+        "mon": "Montag",
+        "tue": "Dienstag",
+        "wed": "Mittwoch",
+        "thu": "Donnerstag",
+        "fri": "Freitag",
+        "sat": "Samstag",
+        "sun": "Sonntag"
+      }
+    },
+    "holidays": {
+      "added": "Feiertag hinzugefügt: `{date}` – {name}",
+      "removed": "Feiertag `{date}` entfernt.",
+      "unnamed": "Feiertag",
+      "none": "Es sind keine Feiertage eingetragen."
+    },
+    "blacklist": {
+      "title": "Ticket-Blacklist",
+      "count": "{count} aktive Einträge",
+      "subtitle": "Nutzer auf der Blacklist können keine Tickets erstellen.",
+      "empty": "Die Blacklist ist leer.",
+      "reason": "Grund: {reason}",
+      "until": "Bis: {until}",
+      "by": "Eingetragen von: {user}",
+      "permanent": "dauerhaft",
+      "add": "Nutzer sperren",
+      "added": "{user} wurde auf die Blacklist gesetzt.",
+      "removed": "{user} wurde von der Blacklist entfernt.",
+      "remove_placeholder": "Eintrag zum Entfernen wählen",
+      "field_user": "Nutzer",
+      "field_reason": "Grund",
+      "field_duration": "Dauer (optional)",
+      "field_duration_hint": "z. B. 7d, 12h – leer lassen für dauerhaft"
+    },
+    "log": {
+      "created": "Ticket erstellt",
+      "closed": "Ticket geschlossen",
+      "reopened": "Ticket wieder geöffnet",
+      "deleted": "Ticket gelöscht",
+      "panel": "Ticket-Panel gesendet",
+      "member_added": "Person zum Ticket hinzugefügt",
+      "member_removed": "Person aus Ticket entfernt",
+      "moved": "Ticket verschoben",
+      "renamed": "Ticket umbenannt",
+      "hours": "Öffnungszeiten geändert",
+      "holiday": "Feiertag eingetragen",
+      "ai_rejected": "Ticket von der KI abgelehnt",
+      "blacklist_add": "Nutzer auf Blacklist gesetzt",
+      "blacklist_remove": "Nutzer von Blacklist entfernt",
+      "ticket": "{e_ticket} **Ticket:** `{code}` · {channel}",
+      "category": "{e_category} **Kategorie:** {category}",
+      "owner": "{e_user} **Nutzer:** {user}",
+      "reason": "{e_message} **Grund:** {reason}",
+      "transcript": "{e_transcript} **Transkript:** [öffnen]({url})"
+    }
+  },
+  "shop": {
+    "panel": {
+      "title": "Unser Shop",
+      "subtitle": "Hochwertige Designs für deinen Server, dein Projekt oder deine Marke.",
+      "bundles": "Bundles",
+      "empty": "Aktuell sind keine Produkte verfügbar.",
+      "delivery": "Standard-Lieferzeit: ca. {days} Tage",
+      "express": "Express: ca. {days} Tage (+{percent} %)",
+      "order_button": "Jetzt bestellen"
+    },
+    "faq": {
+      "title": "Häufige Fragen",
+      "subtitle": "Hier findest du Antworten auf die wichtigsten Fragen.",
+      "empty": "Noch keine Einträge vorhanden.",
+      "footer": "Deine Frage ist nicht dabei? Öffne einfach ein Ticket.",
+      "ask": "Frage stellen"
+    },
+    "partner": {
+      "title": "Partnerschaft",
+      "subtitle": "Du möchtest mit {shop} zusammenarbeiten? Wir freuen uns auf deine Anfrage!",
+      "requirements": "Voraussetzungen",
+      "footer": "Anfragen werden mithilfe einer DSGVO-konform gehosteten KI vorgeprüft.",
+      "button": "Partnerschaft anfragen"
+    },
+    "panel_sent": "Panel gesendet in {channel}.",
+    "showcase": {
+      "subline": "Eine Arbeit von {shop}",
+      "designer_label": "Designer",
+      "customer_label": "Kunde",
+      "footer": "Du möchtest auch so ein Design? Bestelle direkt über unser Ticket-System.",
+      "posted": "Showcase gepostet in {channel}."
+    },
+    "product": {
+      "added": "Produkt **{name}** angelegt.",
+      "updated": "Produkt **{name}** aktualisiert.",
+      "removed": "Produkt **{name}** gelöscht.",
+      "list_title": "Produkte",
+      "count": "{count} Produkte"
+    },
+    "category": {
+      "saved": "Kategorie **{name}** gespeichert.",
+      "removed": "Kategorie `{key}` gelöscht."
+    },
+    "bundle": {
+      "created": "Bundle **{name}** angelegt.",
+      "hint": "Füge mit `/bundle item` Produkte hinzu.",
+      "updated": "Bundle **{name}** aktualisiert.",
+      "empty": "Noch keine Produkte im Bundle.",
+      "removed": "Bundle gelöscht.",
+      "none": "Es gibt noch keine Bundles."
+    },
+    "coupon": {
+      "list_title": "Gutscheine",
+      "count": "{count} Gutscheine",
+      "none": "Es gibt noch keine Gutscheine.",
+      "expires": "bis {date}",
+      "bound": "{count} Produkte",
+      "created": "Gutschein `{code}` erstellt.",
+      "toggled": "Gutschein `{code}`: {state}",
+      "deleted": "Gutschein `{code}` gelöscht."
+    },
+    "log": {
+      "panel": "Panel gesendet ({kind})",
+      "product_added": "Produkt angelegt",
+      "product_removed": "Produkt gelöscht",
+      "coupon_created": "Gutschein erstellt"
+    },
+    "errors": {
+      "not_an_image": "Bitte lade ein Bild hoch.",
+      "product_not_found": "Produkt nicht gefunden.",
+      "bundle_not_found": "Bundle nicht gefunden.",
+      "coupon_not_found": "Gutschein nicht gefunden.",
+      "category_not_found": "Kategorie nicht gefunden.",
+      "sku_exists": "Die Artikelnummer `{sku}` existiert bereits.",
+      "coupon_invalid": "Dieser Gutscheincode ist ungültig.",
+      "coupon_value": "Ungültiger Gutscheinwert (Prozent: 1–100).",
+      "coupon_exists": "Der Gutschein `{code}` existiert bereits.",
+      "coupon_expired": "Dieser Gutschein ist abgelaufen oder deaktiviert.",
+      "coupon_exhausted": "Dieser Gutschein wurde bereits zu oft eingelöst.",
+      "coupon_min_order": "Dieser Gutschein gilt erst ab einem Bestellwert von {min}.",
+      "coupon_products": "Dieser Gutschein gilt nicht für die Produkte in deinem Warenkorb."
+    }
+  },
+  "orders": {
+    "number": "Bestellung #{number}",
+    "create": {
+      "title": "Bestellung erstellen",
+      "guide": "Anleitung",
+      "body": "Wähle Produkte aus den Listen. Über **Bundles** wechselst du die Ansicht. Lieferzeit, Zahlung und Saison-Design wählst du danach selbst.",
+      "no_products": "Aktuell sind keine Produkte verfügbar – ein Teammitglied hilft dir gleich weiter.",
+      "no_bundles": "Aktuell sind keine Bundles verfügbar.",
+      "show_products": "Produkte",
+      "show_bundles": "Bundles",
+      "cart": "Warenkorb ({count})",
+      "select_products": "{category} auswählen",
+      "select_bundles": "Bundle auswählen",
+      "other": "Weitere Produkte",
+      "cart_summary": "Warenkorb: **{count}** Artikel · Zwischensumme **{amount}**",
+      "cart_empty": "Dein Warenkorb ist noch leer.",
+      "truncated": "Nicht alle Produkte passen in die Auswahl – frag das Team gerne nach weiteren Produkten."
+    },
+    "totals": {
+      "subtotal": "Zwischensumme",
+      "express": "Express-Zuschlag",
+      "seasonal": "Saison-Design ({name})",
+      "discount": "Gutschein {code}",
+      "total": "Gesamt"
+    },
+    "details": {
+      "title": "Lieferung & Extras",
+      "subtitle": "Wähle Lieferzeit, optional ein Saison-Design und löse einen Gutschein ein."
+    },
+    "delivery": {
+      "standard": "Standard (ca. {days} Tage)",
+      "standard_desc": "Normal delivery",
+      "express": "Express (ca. {days} Tage)",
+      "express_desc": "Express delivery",
+      "placeholder": "Lieferzeit wählen",
+      "standard_short": "Standard",
+      "express_short": "Express"
+    },
+    "seasonal": {
+      "none": "Kein Saison-Design",
+      "placeholder": "Saison-Design wählen (optional)"
+    },
+    "coupon": {
+      "add": "Gutschein einlösen",
+      "remove": "Gutschein entfernen",
+      "field": "Gutscheincode",
+      "applied": "Gutschein `{code}` eingelöst – du sparst {amount}."
+    },
+    "summary": {
+      "button": "Zur Zusammenfassung",
+      "title": "Zusammenfassung",
+      "subtitle": "Bitte prüfe deine Bestellung. Mit dem Abschließen erhältst du den Zahlungslink.",
+      "delivery": "Lieferung",
+      "footer": "Mit dem Abschluss akzeptierst du unsere AGB und Widerrufsbelehrung.",
+      "cancel": "Abbrechen",
+      "submit": "Bestellung abschließen"
+    },
+    "submitted": {
+      "title": "Bestellung abgeschlossen",
+      "subtitle_link": "Vielen Dank! Bezahle jetzt sicher über den Button – danach geht deine Bestellung direkt in die Warteschlange.",
+      "subtitle_manual": "Vielen Dank! Ein Teammitglied sendet dir in Kürze die Zahlungsinformationen.",
+      "footer": "Du erhältst nach der Zahlung automatisch eine Bestätigung per DM.",
+      "pay": "Jetzt bezahlen ({amount})",
+      "new_link": "Neuer Zahlungslink"
+    },
+    "cart": {
+      "title": "Warenkorb",
+      "empty": "Der Warenkorb ist leer.",
+      "subtotal": "Zwischensumme: {amount}",
+      "remove_placeholder": "Artikel entfernen",
+      "clear": "Warenkorb leeren"
+    },
+    "status": {
+      "draft": "Entwurf",
+      "awaiting_payment": "Warte auf Zahlung",
+      "paid": "Bezahlt",
+      "queued": "In der Warteschlange",
+      "in_progress": "In Bearbeitung",
+      "pending_answer": "Warte auf Antwort",
+      "completed": "Fertiggestellt",
+      "cancelled": "Storniert",
+      "refunded": "Erstattet"
+    },
+    "status_title": {
+      "draft": "Bestellung im Entwurf",
+      "awaiting_payment": "Zahlung ausstehend",
+      "paid": "Zahlung eingegangen",
+      "queued": "Zurück in der Warteschlange",
+      "in_progress": "Deine Bestellung ist in Bearbeitung",
+      "pending_answer": "Wir warten auf deine Antwort",
+      "completed": "Deine Bestellung ist fertig!",
+      "cancelled": "Bestellung storniert",
+      "refunded": "Bestellung erstattet"
+    },
+    "status_text": {
+      "draft": "Deine Bestellung wurde noch nicht abgeschlossen.",
+      "awaiting_payment": "Sobald die Zahlung eingegangen ist, starten wir mit deiner Bestellung.",
+      "paid": "Vielen Dank für deine Zahlung! Deine Bestellung ist jetzt in der **Warteschlange**.",
+      "queued": "Deine Bestellung wartet wieder in der **Warteschlange** und wird **schnellstmöglich** bearbeitet.",
+      "in_progress": "Ein Designer arbeitet jetzt an deiner Bestellung. Wir melden uns, sobald es Neuigkeiten gibt.",
+      "pending_answer": "Wir benötigen eine **Rückmeldung** von dir, um weiterarbeiten zu können. Bitte schau in dein Ticket.",
+      "completed": "Deine Bestellung wurde **fertiggestellt**. Vielen Dank für dein Vertrauen!",
+      "cancelled": "Deine Bestellung wurde storniert.",
+      "refunded": "Deine Zahlung wurde erstattet."
+    },
+    "status_footer": "Bei Fragen antworte einfach in deinem Ticket.",
+    "info": {
+      "status": "Status",
+      "position": "Position",
+      "designer": "Designer",
+      "due": "Voraussichtlich fertig",
+      "customer": "Kunde",
+      "created": "Erstellt",
+      "paid": "Bezahlt"
+    },
+    "queue": {
+      "title": "Warteschlange",
+      "subline": "{waiting} wartend · {working} in Bearbeitung",
+      "more": "… und {count} weitere",
+      "empty": "Die Warteschlange ist leer.",
+      "working": "In Bearbeitung",
+      "footer": "Express-Bestellungen werden bevorzugt bearbeitet."
+    },
+    "todos": {
+      "title": "Checkliste",
+      "subtitle": "Hier siehst du den aktuellen Fortschritt deiner Bestellung.",
+      "progress": "{done} von {total} erledigt",
+      "toggle_placeholder": "Punkte abhaken (nur Team)",
+      "empty": "Noch keine Punkte vorhanden.",
+      "add": "Punkt hinzufügen",
+      "remove": "Punkt entfernen",
+      "field": "Text",
+      "added": "Punkt hinzugefügt: {text}",
+      "remove_placeholder": "Punkte zum Entfernen wählen"
+    },
+    "stats": {
+      "title": "Bestellstatistik",
+      "revenue": "Umsatz",
+      "count": "Bezahlte Bestellungen",
+      "average": "Durchschnittlicher Bestellwert",
+      "express": "Express-Anteil",
+      "by_status": "Nach Status",
+      "designers": "Pro Designer",
+      "period": {
+        "7d": "Letzte 7 Tage",
+        "30d": "Letzte 30 Tage",
+        "90d": "Letzte 90 Tage",
+        "365d": "Letztes Jahr",
+        "all": "Gesamter Zeitraum"
+      }
+    },
+    "guide": {
+      "title": "So funktioniert die Bestellung",
+      "step1_title": "Produkte wählen",
+      "step1": "Wähle in den Listen deine Produkte – über **Bundles** findest du vergünstigte Pakete.",
+      "step2_title": "Lieferung & Extras",
+      "step2": "Entscheide dich für Standard oder Express und wähle optional ein Saison-Design.",
+      "step3_title": "Gutschein",
+      "step3": "Löse deinen Gutscheincode ein – der Rabatt wird sofort berechnet.",
+      "step4_title": "Bezahlen",
+      "step4": "Schließe die Bestellung ab und bezahle sicher über den Zahlungslink.",
+      "footer": "Fragen? Schreib einfach in dein Ticket."
+    },
+    "errors": {
+      "not_found": "Bestellung nicht gefunden.",
+      "not_your_order": "Das ist nicht deine Bestellung.",
+      "locked": "Diese Bestellung kann nicht mehr verändert werden.",
+      "empty_cart": "Dein Warenkorb ist leer.",
+      "express_disabled": "Express-Lieferung ist derzeit nicht verfügbar.",
+      "same_status": "Die Bestellung hat bereits den Status **{status}**.",
+      "closed_order": "Diese Bestellung ist bereits abgeschlossen.",
+      "no_order_here": "In diesem Kanal gibt es keine Bestellung.",
+      "not_awaiting_payment": "Für diese Bestellung wird keine Zahlung erwartet.",
+      "status_changed": "Der Status dieser Bestellung wurde gerade geändert. Bitte prüfe sie erneut.",
+      "cart_changed": "Der Warenkorb wurde gerade geändert – bitte prüfe die Zusammenfassung erneut."
+    },
+    "cancel": {
+      "title": "Bestellung stornieren?",
+      "description": "Bestellung **#{number}** wird storniert.",
+      "done": "Die Bestellung wurde storniert."
+    },
+    "workflow": {
+      "done": "Bestellung #{number}: **{status}**"
+    },
+    "position": {
+      "title": "Deine Bestellungen",
+      "none": "Du hast aktuell keine offenen Bestellungen."
+    },
+    "assigned": "{user} ist jetzt für Bestellung #{number} zuständig.",
+    "wizard_sent": "Bestell-Assistent für Bestellung #{number} gesendet.",
+    "custom_added": "Position **{name}** ({amount}) hinzugefügt.",
+    "log": {
+      "status": "Bestellung #{number}: {status}",
+      "customer": "{e_user} **Kunde:** {user}",
+      "transition": "{e_refresh} **Status:** {old} {e_arrow} {new}",
+      "total": "{e_money} **Summe:** {amount}",
+      "designer": "{e_designer} **Designer:** {user}",
+      "note": "{e_message} **Notiz:** {note}",
+      "assigned": "Designer zugewiesen (#{number})",
+      "created_api": "Bestellung #{number} über die API erstellt"
+    }
+  },
+  "payments": {
+    "errors": {
+      "already_paid": "Diese Bestellung wurde bereits bezahlt.",
+      "stripe": "Der Zahlungslink konnte nicht erstellt werden. Bitte versuche es später erneut.",
+      "unavailable": "Online-Zahlung ist nicht eingerichtet oder der Betrag ist zu gering.",
+      "not_paid": "Für diese Bestellung gibt es noch keine Rechnung, da sie nicht bezahlt ist."
+    },
+    "invoice_dm": {
+      "title": "Deine Rechnung",
+      "text": "Vielen Dank für deinen Einkauf! Anbei findest du deine Rechnung **{number}**.",
+      "footer": "Bewahre die Rechnung für deine Unterlagen auf."
+    },
+    "legal": {
+      "terms": "Allgemeine Geschäftsbedingungen",
+      "privacy": "Datenschutzerklärung",
+      "withdrawal": "Widerrufsbelehrung",
+      "open": "Vollständig lesen"
+    },
+    "apikey": {
+      "created": "API-Schlüssel „{name}“ erstellt",
+      "secret": "Speichere den Schlüssel jetzt – er wird **nicht** erneut angezeigt:\n`{key}`\nBerechtigungen: {scopes}",
+      "list_title": "API-Schlüssel",
+      "last_used": "Zuletzt verwendet: {when}",
+      "none": "Es gibt noch keine API-Schlüssel.",
+      "revoked": "API-Schlüssel #{id} widerrufen."
+    },
+    "privacy": {
+      "export_title": "Dein Datenexport",
+      "export_text": "Hier sind alle Daten, die wir zu dir gespeichert haben (JSON).",
+      "delete_title": "Daten wirklich löschen?",
+      "delete_text": "Bewertungen, Level, Economy, abgeschlossene Tickets und weitere Daten werden unwiderruflich gelöscht. Rechnungen, offene Tickets, Sperren und Protokolle eigener Aktionen bleiben aus rechtlichen Gründen erhalten.",
+      "deleted": "Deine Daten wurden gelöscht.",
+      "retained": "{count} Bestellung(en) mit Rechnung bleiben aufgrund der gesetzlichen Aufbewahrungsfrist gespeichert."
+    },
+    "page": {
+      "success_title": "Zahlung erfolgreich",
+      "success_text": "Vielen Dank! Deine Zahlung für Bestellung #{number} ist eingegangen. Du kannst dieses Fenster schließen und zu Discord zurückkehren.",
+      "cancel_title": "Zahlung abgebrochen",
+      "cancel_text": "Die Zahlung für Bestellung #{number} wurde abgebrochen. Über den Button im Ticket kannst du es jederzeit erneut versuchen."
+    },
+    "log": {
+      "link": "Zahlungslink erstellt (#{number})",
+      "apikey_created": "API-Schlüssel erstellt",
+      "apikey_revoked": "API-Schlüssel widerrufen",
+      "privacy_delete": "Kundendaten gelöscht (DSGVO)",
+      "attention": "Zahlung prüfen (#{number})"
+    },
+    "attention": {
+      "duplicate": "{e_warning} Für diese Bestellung ist eine **weitere Zahlung** eingegangen – bitte im Stripe-Dashboard prüfen und ggf. erstatten.",
+      "cancelled": "{e_warning} Zahlung für eine **stornierte** Bestellung eingegangen – bitte erstatten oder Bestellung wiederherstellen.",
+      "refunded": "{e_warning} Zahlung für eine bereits **erstattete** Bestellung eingegangen – bitte prüfen.",
+      "extra_refunded": "{e_info} Eine **zusätzliche Zahlung** wurde erstattet – die Bestellung bleibt bezahlt."
+    }
+  },
+  "invoice": {
+    "customer_fallback": "Kunde",
+    "number": "Rechnungsnummer",
+    "date": "Rechnungsdatum",
+    "order": "Bestellung",
+    "customer_id": "Kunden-ID",
+    "title": "Rechnung",
+    "qty": "Menge",
+    "description": "Beschreibung",
+    "unit_price": "Einzelpreis",
+    "amount": "Betrag",
+    "express": "Express-Zuschlag",
+    "seasonal": "Saison-Design",
+    "discount": "Rabatt {code}",
+    "net": "Nettobetrag",
+    "vat": "zzgl. {rate} % USt.",
+    "total": "Gesamtbetrag",
+    "paid_note": "Der Rechnungsbetrag wurde bereits beglichen. Vielen Dank für deinen Auftrag!",
+    "small_business": "Gemäß § 19 UStG wird keine Umsatzsteuer berechnet.",
+    "tax_number": "Steuernummer",
+    "vat_id": "USt-IdNr."
+  },
+  "reviews": {
+    "post": {
+      "title": "**Neue Bewertung von** {user}",
+      "subline": "Bestellung #{number} von {user}",
+      "rating": "Bewertung",
+      "rating_value": "({rating} / 5 Sterne)",
+      "stats": "Ticket-Statistik",
+      "stats_line": "{messages} Nachrichten · {participants} verschiedene Personen · {attachments} gesendete Dateien",
+      "feedback": "Feedback des Kunden",
+      "no_feedback": "Kein schriftliches Feedback.",
+      "footer": "Vielen Dank für deine Bewertung bei {shop}. {e_heart}"
+    },
+    "request": {
+      "title": "Wie zufrieden bist du?",
+      "subline": "Bestellung #{number} · {guild}",
+      "text": "Deine Bestellung ist abgeschlossen! Wir würden uns sehr über eine **Bewertung** freuen – sie hilft uns und anderen Kunden.",
+      "footer": "Wähle 1 bis 5 Sterne. Danach kannst du optional ein kurzes Feedback schreiben."
+    },
+    "thanks": {
+      "title": "Danke für deine Bewertung!",
+      "text": "Deine Bewertung {stars} wurde veröffentlicht."
+    },
+    "modal": {
+      "title": "Bewertung: {rating} von 5 Sternen",
+      "field": "Dein Feedback (optional)",
+      "placeholder": "Was hat dir gefallen? Was können wir besser machen?"
+    },
+    "errors": {
+      "not_completed": "Diese Bestellung ist noch nicht abgeschlossen.",
+      "already": "Für diese Bestellung wurde bereits eine Bewertung abgegeben.",
+      "nothing_to_review": "Du hast keine abgeschlossene Bestellung ohne Bewertung."
+    },
+    "log": {
+      "created": "Neue Bewertung (#{number})"
+    }
+  },
+  "stats": {
+    "days": "{value} Tage",
+    "hours": "{value} Std.",
+    "empty": "Für diesen Zeitraum liegen keine Daten vor.",
+    "section": {
+      "tickets": "Tickets",
+      "sales": "Verkäufe",
+      "reviews": "Bewertungen & Downloads"
+    },
+    "overview": {
+      "title": "Übersicht"
+    },
+    "tickets": {
+      "title": "Ticket-Statistik",
+      "created": "Erstellt",
+      "open": "Aktuell offen",
+      "closed": "Geschlossen",
+      "avg_close": "Ø Bearbeitungsdauer",
+      "line": "{created} erstellt · {closed} geschlossen · Ø {avg}",
+      "supporters": "Aktivste Teammitglieder",
+      "messages": "{count} Nachrichten"
+    },
+    "sales": {
+      "title": "Verkaufsstatistik",
+      "revenue": "Umsatz",
+      "orders": "Bezahlte Bestellungen",
+      "average": "Ø Bestellwert",
+      "express": "Express-Anteil",
+      "top_products": "Top-Produkte"
+    },
+    "customers": {
+      "title": "Kundenstatistik",
+      "paying": "Zahlende Kunden",
+      "repeat": "Stammkunden (2+ Bestellungen)",
+      "new": "Neukunden",
+      "top": "Top-Kunden nach Umsatz"
+    },
+    "reviews": {
+      "title": "Bewertungsstatistik",
+      "count": "Bewertungen",
+      "average": "Ø Bewertung",
+      "summary": "{stars} **{average}** aus {count} Bewertungen",
+      "latest": "Neuestes Feedback"
+    },
+    "downloads": {
+      "clicks": "Download-Klicks"
+    },
+    "designers": {
+      "title": "Designer-Statistik",
+      "line": "{completed} fertiggestellt · {active} aktiv · {revenue} Umsatz",
+      "line2": "Ø Bewertung {rating} · Ø Dauer {lead}"
+    }
+  },
+  "economy": {
+    "balance_line": "Neues Guthaben: {balance} {currency}",
+    "balance": {
+      "title": "Guthaben von {user}",
+      "rank": "Platz #{rank} auf der Rangliste",
+      "current": "Guthaben",
+      "earned": "Insgesamt verdient",
+      "lost": "Insgesamt ausgegeben"
+    },
+    "daily": {
+      "title": "Tägliche Belohnung",
+      "text": "Du hast {amount} erhalten. Komm morgen wieder!"
+    },
+    "work": {
+      "title": "Feierabend!",
+      "lines": [
+        "Du hast ein Logo für ein Café entworfen und {amount} verdient.",
+        "Du hast Banner für einen Streamer gestaltet und {amount} bekommen.",
+        "Du hast den ganzen Tag Pixel geschoben – {amount} sind dein Lohn.",
+        "Ein Kunde war begeistert von deinem Thumbnail: {amount}!"
+      ]
+    },
+    "crime": {
+      "title_success": "Coup gelungen",
+      "title_fail": "Erwischt!",
+      "success": [
+        "Du hast unbemerkt die Schriftarten-Sammlung des Nachbarn kopiert und {amount} kassiert.",
+        "Dein Fake-Gewinnspiel lief erstaunlich gut: {amount}."
+      ],
+      "fail": [
+        "Die Polizei hat dich geschnappt. Strafe: {amount}.",
+        "Dein Plan ging schief – du zahlst {amount} Strafe."
+      ]
+    },
+    "rob": {
+      "title_success": "Überfall erfolgreich",
+      "title_fail": "Überfall gescheitert",
+      "success": "Du hast {user} {amount} abgenommen!",
+      "fail": "{user} hat dich erwischt. Du zahlst {amount} Entschädigung."
+    },
+    "pay": {
+      "title": "Überweisung",
+      "text": "Du hast {user} {amount} überwiesen."
+    },
+    "leaderboard": {
+      "title": "Rangliste",
+      "empty": "Noch hat niemand Münzen gesammelt."
+    },
+    "admin": {
+      "done": "Guthaben von {user}: {balance}",
+      "reset": "Economy zurückgesetzt für {user}."
+    },
+    "log": {
+      "give": "Münzen vergeben",
+      "take": "Münzen entzogen",
+      "set": "Guthaben gesetzt",
+      "reset": "Economy zurückgesetzt",
+      "line": "{e_user} {user} · {e_coin} {amount}",
+      "everyone": "alle Mitglieder"
+    },
+    "errors": {
+      "insufficient": "Dafür reicht dein Guthaben nicht aus.",
+      "bot": "Bots haben kein Guthaben.",
+      "rob_target": "Das ist kein gültiges Ziel.",
+      "rob_poor": "Dieses Mitglied besitzt zu wenig (mindestens {min} nötig)."
+    }
+  },
+  "games": {
+    "errors": {
+      "bet_limits": "Der Einsatz muss zwischen **{min}** und **{max}** liegen.",
+      "already_playing": "Du hast bereits ein laufendes Spiel.",
+      "cooldown": "Nicht so schnell! Warte noch {seconds} Sekunden.",
+      "mines_count": "Wähle zwischen 1 und {max} Minen."
+    },
+    "footer_bet": "Einsatz: {bet}",
+    "footer_done": "Neues Guthaben: {balance}",
+    "again": "Nochmal spielen",
+    "blackjack": {
+      "title": "Blackjack",
+      "dealer": "Dealer ({value})",
+      "player": "Deine Hand ({value})",
+      "hit": "Karte",
+      "stand": "Halten",
+      "double": "Verdoppeln",
+      "result": {
+        "blackjack": "**Blackjack!** Du gewinnst {amount}.",
+        "win": "**Gewonnen!** Du erhältst {amount}.",
+        "dealer_bust": "**Der Dealer hat sich überkauft!** Du erhältst {amount}.",
+        "push": "**Unentschieden.** Dein Einsatz ({amount}) wird erstattet.",
+        "lose": "**Verloren.** Der Dealer gewinnt diese Runde.",
+        "bust": "**Überkauft!** Du hast über 21 Punkte."
+      }
+    },
+    "mines": {
+      "title": "Mines",
+      "subline": "{mines} Minen auf {tiles} Feldern",
+      "multiplier": "Multiplikator",
+      "next": "Nächstes Feld",
+      "potential": "Aktueller Gewinn",
+      "cashout": "Auszahlen",
+      "won": "**Ausgezahlt!** Du erhältst {amount}.",
+      "lost": "**Boom!** Du hast eine Mine getroffen."
+    }
+  },
+  "levels": {
+    "up": {
+      "title": "Level-Up!",
+      "text": "Glückwunsch {user}, du hast **Level {level}** erreicht!",
+      "rewards": "Neue Rollen"
+    },
+    "rank": {
+      "title": "{user}",
+      "position": "Platz #{rank}",
+      "level": "**Level {level}**",
+      "total": "Gesamt-XP",
+      "messages": "Nachrichten"
+    },
+    "leaderboard": {
+      "title": "Level-Rangliste",
+      "empty": "Noch hat niemand XP gesammelt."
+    },
+    "admin": {
+      "set": "{user}: Level **{level}** ({xp} XP)",
+      "reset": "Level zurückgesetzt für {user}."
+    },
+    "log": {
+      "set": "XP gesetzt"
+    },
+    "reward": {
+      "added": "Belohnung für Level {level}: {role}",
+      "removed": "Belohnung für Level {level} entfernt: {role}",
+      "title": "Level-Belohnungen",
+      "none": "Es sind keine Belohnungen eingerichtet."
+    },
+    "boost": {
+      "title": "Danke für deinen Boost!",
+      "text": "{user} hat den Server geboostet – wir sind jetzt bei **{count} Boosts**. Vielen Dank für die Unterstützung!",
+      "log": "Server geboostet"
+    }
+  },
+  "invites": {
+    "join": {
+      "title": "Neues Mitglied",
+      "by": "{user} wurde von {inviter} eingeladen ({count} Einladungen).",
+      "vanity": "{user} ist über den Vanity-Link beigetreten.",
+      "unknown": "{user} ist beigetreten – Einladung unbekannt.",
+      "created": "Account erstellt {created}"
+    },
+    "flags": {
+      "fake": "Fake-Verdacht (neuer Account)",
+      "rejoin": "Wiederbeitritt"
+    },
+    "show": {
+      "title": "Einladungen von {user}",
+      "effective": "{count} gültige Einladungen",
+      "total": "Gesamt",
+      "left": "Wieder gegangen",
+      "fake": "Fake",
+      "rejoins": "Wiederbeitritte"
+    },
+    "leaderboard": {
+      "title": "Einladungs-Rangliste",
+      "count": "{count} Einladungen",
+      "empty": "Noch keine Einladungen erfasst."
+    },
+    "who": {
+      "title": "Einladung",
+      "unknown": "Für {user} ist kein Einladender bekannt.",
+      "found": "{user} wurde von {inviter} eingeladen (Code `{code}`, {when})."
+    }
+  },
+  "community": {
+    "giveaway": {
+      "not_found": "Giveaway nicht gefunden.",
+      "subline": "Giveaway #{id}",
+      "ends": "Endet",
+      "ended_at": "Beendet",
+      "winners": "Gewinner",
+      "entries": "Teilnehmer",
+      "host": "Veranstalter",
+      "required": "Voraussetzung",
+      "no_winners": "keine gültigen Teilnehmer",
+      "result": "{e_trophy} **Gewinner:** {winners}",
+      "footer": "Klicke auf den Button, um teilzunehmen – erneut klicken zum Austreten.",
+      "join": "Teilnehmen",
+      "started": "Giveaway #{id} gestartet in {channel}.",
+      "log_start": "Giveaway gestartet",
+      "already_ended": "Dieses Giveaway ist bereits beendet.",
+      "ended_ok": "Giveaway #{id} beendet.",
+      "not_ended": "Dieses Giveaway läuft noch.",
+      "rerolled": "Neue Gewinner für Giveaway #{id} ausgelost.",
+      "list_title": "Laufende Giveaways",
+      "none": "Aktuell laufen keine Giveaways.",
+      "missing_role": "Für dieses Giveaway benötigst du die Rolle {role}.",
+      "joined": "Du nimmst jetzt am Giveaway teil – viel Glück!",
+      "left": "Du nimmst nicht mehr am Giveaway teil.",
+      "announce": "Herzlichen Glückwunsch {winners}! Ihr habt **{prize}** gewonnen.",
+      "announce_none": "Für **{prize}** gab es leider keine gültigen Teilnehmer.",
+      "reroll_title": "Neue Gewinner",
+      "end_title": "Giveaway beendet",
+      "log_end": "Giveaway beendet"
+    },
+    "welcome": {
+      "title": "Willkommen auf {guild}!",
+      "text": "Schön, dass du da bist, {user}! Schau dich in Ruhe um und melde dich bei Fragen jederzeit im **Ticket-System**.",
+      "footer": "Du bist unser {count}. Mitglied.",
+      "dm": "Danke für deinen Beitritt auf **{guild}**! Wir freuen uns auf dich."
+    },
+    "nickname": {
+      "log": "Nickname automatisch angepasst",
+      "line": "{user}: **{old}** {e_arrow} **{new}**"
+    },
+    "captcha": {
+      "title": "Verifizierung",
+      "text": "Bitte bestätige, dass du ein Mensch bist, um Zugriff auf den Server zu erhalten.",
+      "footer": "Die Verifizierung dauert nur wenige Sekunden.",
+      "start": "Jetzt verifizieren",
+      "already": "Du bist bereits verifiziert.",
+      "locked": "Zu viele Fehlversuche. Versuche es in {minutes} Minuten erneut.",
+      "challenge_title": "Captcha",
+      "image_text": "Gib die Zeichen aus dem Bild ein.",
+      "enter": "Code eingeben",
+      "button_text": "Klicke auf den Button mit dem Code {code}.",
+      "field": "Code",
+      "expired": "Das Captcha ist abgelaufen – starte die Verifizierung neu.",
+      "wrong": "Falscher Code. Noch {remaining} Versuch(e).",
+      "success": "Verifizierung erfolgreich – willkommen!",
+      "log": "Mitglied verifiziert",
+      "kicked": "Du wurdest von {guild} entfernt, weil du die Verifizierung nicht rechtzeitig abgeschlossen hast."
+    },
+    "rr": {
+      "not_found": "Panel nicht gefunden.",
+      "empty": "Diesem Panel wurden noch keine Rollen hinzugefügt.",
+      "footer": "Klicke erneut, um eine Rolle wieder abzulegen.",
+      "placeholder": "Rollen auswählen",
+      "created": "Panel #{id} erstellt.",
+      "hint": "Füge Rollen mit `/reactionroles add` hinzu.",
+      "role_too_high": "Diese Rolle kann ich nicht vergeben (zu hoch oder verwaltet).",
+      "full": "Das Panel ist voll (maximal {max} Rollen).",
+      "added": "{role} zum Panel hinzugefügt.",
+      "removed": "{role} aus dem Panel entfernt.",
+      "deleted": "Panel #{id} gelöscht.",
+      "role_missing": "Diese Rolle existiert nicht mehr.",
+      "role_removed": "Rolle {role} entfernt.",
+      "role_added": "Rolle {role} erhalten.",
+      "updated": "Rollen aktualisiert: +{added} / -{removed}"
+    },
+    "ghost": {
+      "title": "Ghost-Ping erkannt",
+      "author": "Autor",
+      "mentioned": "Erwähnt",
+      "footer": "Gesendet {when} und kurz darauf gelöscht."
+    },
+    "remind": {
+      "range": "Der Zeitpunkt muss in der Zukunft liegen (maximal {days} Tage).",
+      "limit": "Du hast bereits {max} offene Erinnerungen.",
+      "created": "Erinnerung #{id} gespeichert für {when}.",
+      "list_title": "Deine Erinnerungen",
+      "none": "Du hast keine offenen Erinnerungen.",
+      "deleted": "Erinnerung #{id} gelöscht.",
+      "title": "Erinnerung",
+      "footer": "Erstellt {when}"
+    },
+    "sync": {
+      "target_missing": "Zielserver oder Zielrolle nicht gefunden (ist der Bot dort Mitglied?).",
+      "added": "{role} wird mit **{guild}** synchronisiert.",
+      "title": "Rollensynchronisierung",
+      "none": "Es sind keine Synchronisierungen eingerichtet.",
+      "removed": "Synchronisierung #{id} entfernt.",
+      "done": "Synchronisierung abgeschlossen – {count} Änderungen."
+    },
+    "modmail": {
+      "new_title": "Neue Mod-Mail",
+      "new_text": "Nachricht von {user}",
+      "staff_hint": "Antworten in diesem Thread werden an den Nutzer gesendet. Interne Notizen mit „{prefix}“ beginnen.",
+      "from_user": "Nachricht vom Nutzer",
+      "from_staff": "Antwort vom Team von {guild}",
+      "reply_hint": "Antworte einfach hier per DM, um dem Team zu schreiben.",
+      "not_thread": "Dieser Befehl funktioniert nur in einem Mod-Mail-Thread.",
+      "closed": "Mod-Mail geschlossen.",
+      "closed_dm": "Deine Unterhaltung mit dem Team von {guild} wurde geschlossen.",
+      "to_user": "Nachricht an den Nutzer",
+      "contacted": "Nachricht gesendet – Verlauf in {thread}."
+    }
+  },
+  "controlpanel": {
+    "sections": {
+      "home": "Übersicht",
+      "tickets": "Tickets",
+      "products": "Produkte",
+      "coupons": "Gutscheine",
+      "hours": "Öffnungszeiten",
+      "features": "Feature-Flags",
+      "stats": "Statistiken",
+      "downloads": "Downloads"
+    },
+    "subline": "Control-Panel · {guild}",
+    "nav": "Bereich wählen",
+    "home": {
+      "intro": "Verwalte hier alle Bereiche deines Servers. Wähle unten einen Bereich aus.",
+      "open_tickets": "Offene Tickets",
+      "queue": "Bestellungen in der Warteschlange",
+      "revenue": "Umsatz (30 Tage)",
+      "features": "Aktive Module",
+      "version": "Version"
+    },
+    "tickets": {
+      "intro": "{count} offene Tickets.",
+      "send_panel": "Ticket-Panel senden in …",
+      "blacklist": "Blacklist öffnen"
+    },
+    "products": {
+      "intro": "{count} Produkte im Katalog.",
+      "pick": "Produkt bearbeiten …",
+      "new": "Produkt anlegen",
+      "price": "Preis",
+      "status": "Status",
+      "sku": "Artikelnummer",
+      "name_de": "Name (Deutsch)",
+      "name_en": "Name (Englisch)",
+      "description_de": "Beschreibung (Deutsch)",
+      "description_en": "Beschreibung (Englisch)",
+      "delete_title": "Produkt löschen?",
+      "delete_text": "**{name}** wird dauerhaft gelöscht."
+    },
+    "coupons": {
+      "intro": "{count} Gutscheine.",
+      "toggle": "Gutschein aktivieren/deaktivieren …",
+      "new": "Gutschein erstellen",
+      "code": "Code",
+      "kind": "Art",
+      "percent": "Prozent",
+      "fixed": "Fester Betrag",
+      "value": "Wert (z. B. 10 oder 5,00)",
+      "max_uses": "Maximale Einlösungen (optional)",
+      "expires": "Ablauf (optional)"
+    },
+    "hours": {
+      "intro": "Öffnungszeiten und Feiertage für das Ticket-System.",
+      "pick_day": "Wochentag bearbeiten …",
+      "remove_holiday": "Feiertag entfernen …",
+      "add_holiday": "Feiertag hinzufügen",
+      "reset": "Auf Config zurücksetzen",
+      "span": "Zeitraum",
+      "span_hint": "Format HH:MM-HH:MM – leer oder „off“ = geschlossen",
+      "date": "Datum (TT.MM.JJJJ)",
+      "name": "Bezeichnung"
+    },
+    "features": {
+      "intro": "Schalte Module für diesen Server ein oder aus. Gesperrte Module sind in der config.yaml deaktiviert.",
+      "config_off": "in der Config deaktiviert",
+      "placeholder": "Aktive Module wählen",
+      "log": "Feature-Flags geändert",
+      "names": {
+        "tickets": "Tickets",
+        "shop": "Shop",
+        "orders": "Bestellungen",
+        "payments": "Zahlungen",
+        "downloads": "Downloads",
+        "economy": "Economy",
+        "games": "Spiele",
+        "levels": "Level",
+        "invites": "Einladungen",
+        "community": "Community",
+        "admin": "Administration",
+        "stats": "Statistiken",
+        "cv2": "CV2-Builder",
+        "logging": "Logging",
+        "deals": "Deals"
+      }
+    },
+    "stats": {
+      "intro": "Wähle eine Statistik (letzte 30 Tage).",
+      "pick": "Statistik anzeigen …",
+      "kinds": {
+        "overview": "Übersicht",
+        "sales": "Verkäufe",
+        "designers": "Designer",
+        "tickets": "Tickets",
+        "reviews": "Bewertungen",
+        "customers": "Kunden",
+        "downloads": "Downloads"
+      }
+    }
+  },
+  "downloads": {
+    "layout": {
+      "footer": "{shop} ™ · Veröffentlicht am {date}",
+      "download": "Download",
+      "download_link": "Download",
+      "via_button": "über den Button unten",
+      "password": "Passwort",
+      "password_link": "Passwort abrufen",
+      "preview": "Vorschau",
+      "youtube": "Auf YouTube ansehen",
+      "download_button": "Download",
+      "preview_button": "Vorschau ansehen",
+      "copy_password": "Passwort kopieren"
+    },
+    "errors": {
+      "no_channel": "Kein Zielkanal festgelegt – wähle einen Kanal aus.",
+      "youtube": "Der YouTube-Link konnte nicht erkannt werden.",
+      "not_found": "Download nicht gefunden.",
+      "role_required": "Für diesen Download benötigst du die Rolle {role}."
+    },
+    "log": {
+      "create": "Download erstellt",
+      "edit": "Download bearbeitet",
+      "delete": "Download gelöscht",
+      "post": "Download gepostet",
+      "update": "Gepostete Nachricht aktualisiert"
+    },
+    "fields": {
+      "title": "Titel",
+      "download_url": "Download-Link",
+      "password": "Passwort (optional)",
+      "password_hint": "Text oder Link",
+      "youtube_url": "YouTube-Vorschau (optional)",
+      "description": "Beschreibung (optional)",
+      "version": "Version",
+      "file_size": "Dateigröße",
+      "description_en": "Beschreibung Englisch (optional)",
+      "preview_image": "Eigenes Vorschaubild (URL)",
+      "preview_image_hint": "Leer lassen = YouTube-Thumbnail",
+      "tags": "Tags (kommagetrennt)"
+    },
+    "create_title": "Download erstellen",
+    "edit_title": "Download bearbeiten",
+    "setup": {
+      "title": "Download einrichten",
+      "subtitle": "Wähle Kategorie, Zielkanal und optional eine Rolle. Prüfe das Ergebnis in der Vorschau und poste es dann.",
+      "category": "Kategorie",
+      "channel": "Zielkanal",
+      "role": "Rollen-Voraussetzung",
+      "details": "Details",
+      "image": "Vorschaubild",
+      "image_custom": "eigenes Bild",
+      "image_youtube": "YouTube-Thumbnail",
+      "image_none": "keins",
+      "status": "Status",
+      "posted": "gepostet in {channel}",
+      "draft": "Entwurf (noch nicht gepostet)",
+      "pick_category": "Kategorie wählen",
+      "pick_channel": "Zielkanal wählen",
+      "pick_role": "Rollen-Voraussetzung (optional)",
+      "edit": "Bearbeiten",
+      "details_button": "Details & Bild",
+      "preview": "Vorschau",
+      "update": "Nachricht aktualisieren",
+      "post": "Posten",
+      "repost": "Neu posten"
+    },
+    "posted": "Download gepostet in {channel}.",
+    "updated": "Gepostete Nachricht aktualisiert.",
+    "delete_title": "Download löschen?",
+    "delete_text": "**{title}** und die geposteten Nachrichten werden gelöscht.",
+    "deleted": "**{title}** wurde gelöscht.",
+    "clicks": "{count} Downloads",
+    "clicks_label": "Klicks",
+    "password_hint": "Markiere das Passwort und kopiere es.",
+    "list_title": "Downloads",
+    "list_count": "{count} Downloads insgesamt",
+    "pick": "Download verwalten …",
+    "none": "Es gibt noch keine Downloads.",
+    "new": "Download erstellen",
+    "stats_button": "Statistik",
+    "created": "Erstellt",
+    "created_by": "Erstellt von",
+    "manage": "Verwalten",
+    "stats": {
+      "title": "Download-Statistik",
+      "downloads": "Downloads",
+      "posted": "{count} gepostet",
+      "clicks_total": "Klicks gesamt",
+      "clicks_period": "Klicks",
+      "periods": "24 h: **{day}** · 7 Tage: **{week}** · 30 Tage: **{month}**",
+      "users": "Verschiedene Nutzer (30 Tage)",
+      "top": "Top-Downloads",
+      "daily": "Klicks der letzten 14 Tage"
+    }
+  },
+  "cv2": {
+    "blocks": {
+      "heading": "Überschrift",
+      "text": "Text",
+      "banner": "Banner",
+      "image": "Bild",
+      "separator": "Trennlinie",
+      "buttons": "Link-Buttons",
+      "separator_large": "großer Abstand",
+      "separator_small": "kleiner Abstand"
+    },
+    "builder": {
+      "empty": "Diese Vorlage ist noch leer – füge unten den ersten Block hinzu.",
+      "title": "Builder · {name}",
+      "subline": "{blocks} / {max} Blöcke · Akzent {accent}",
+      "up": "Hoch",
+      "down": "Runter",
+      "add": "Block hinzufügen …",
+      "pick": "Block bearbeiten …",
+      "color": "Akzentfarbe",
+      "rename": "Umbenennen",
+      "copy": "Als Kopie speichern",
+      "send": "Senden in …",
+      "update_link": "Nachricht aktualisieren",
+      "sync": "Alle gesendeten aktualisieren",
+      "copied": "Kopie von „{name}“ erstellt.",
+      "sent": "Gesendet: {url}",
+      "updated": "Aktualisiert: {url}",
+      "synced": "{count} gesendete Nachrichten aktualisiert."
+    },
+    "errors": {
+      "too_large": "Die Vorlage wäre zu groß für eine Discord-Nachricht (Komponenten-Limit).",
+      "too_many": "Maximal {max} Blöcke pro Vorlage.",
+      "invalid_block": "Ungültige Angaben für diesen Block.",
+      "color": "Ungültige Farbe. Format: #4A90E2",
+      "button_format": "Format pro Zeile: `Beschriftung | https://link | emoji` (1–5 Zeilen).",
+      "not_found": "Vorlage nicht gefunden.",
+      "name_taken": "Eine Vorlage mit dem Namen „{name}“ existiert bereits.",
+      "empty": "Die Vorlage ist leer.",
+      "link": "Ungültiger Nachrichten-Link (Rechtsklick → Link kopieren).",
+      "not_own": "Ich kann nur meine eigenen Nachrichten bearbeiten.",
+      "import": "Die Datei ist keine gültige Vorlage."
+    },
+    "fields": {
+      "heading": "Überschrift",
+      "emoji": "Emoji (optional)",
+      "emoji_hint": "Registry-Schlüssel (z. B. ticket) oder Emoji",
+      "subline": "Kleine Zeile darunter (optional)",
+      "content": "Inhalt",
+      "markdown_hint": "Markdown: **fett**, > Zitat, -# klein, - Liste",
+      "style": "Darstellung",
+      "banner": "Banner-URL oder Schlüssel",
+      "banner_hint": "z. B. https://… oder tickets / shop / downloads",
+      "image_url": "Bild-URL",
+      "alt": "Bildbeschreibung (optional)",
+      "size": "Abstand",
+      "visible": "Linie sichtbar",
+      "buttons": "Buttons",
+      "buttons_hint": "Eine Zeile pro Button: Beschriftung | Link | Emoji",
+      "accent": "Akzentfarbe",
+      "accent_hint": "Hex-Code, leer = Standardfarbe",
+      "name": "Name",
+      "link": "Nachrichten-Link",
+      "link_hint": "Nur Nachrichten dieses Bots"
+    },
+    "styles": {
+      "plain": "Normal",
+      "quote": "Zitat",
+      "small": "Kleine Schrift",
+      "small_space": "Klein",
+      "large_space": "Groß"
+    },
+    "log": {
+      "sent": "CV2-Vorlage gesendet"
+    },
+    "delete_title": "Vorlage löschen?",
+    "delete_text": "Die Vorlage **{name}** wird gelöscht. Bereits gesendete Nachrichten bleiben erhalten.",
+    "deleted": "Vorlage **{name}** gelöscht.",
+    "list_title": "CV2-Vorlagen",
+    "list_line": "{blocks} Blöcke · {sent}× gesendet",
+    "list_empty": "Es gibt noch keine Vorlagen. Starte mit `/cv2 new`."
+  },
+  "deals": {
+    "modal_title": "Neuer Deal",
+    "button": "🛒 Deal ansehen",
+    "posted": "Deal gepostet.",
+    "fields": {
+      "title": "Titel",
+      "description": "Beschreibung",
+      "image_url": "Bild-URL",
+      "link": "Affiliate-Link"
+    }
+  }
+}
